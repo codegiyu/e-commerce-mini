@@ -1,5 +1,82 @@
+import sendemail from "../assets/sendemail.svg"
+import copyright from "../assets/copyright.svg"
+import scan from "../assets/scan.svg"
+import google from "../assets/google.svg"
+import x from "../assets/x.svg"
+import lind from "../assets/lind.svg"
+import insta from "../assets/insta.svg"
+import facebook from "../assets/facebook.svg"
+
+
 export const Footer = () => {
   return (
-    <footer className="">Footer</footer>
+    <footer className=" bg-[#000000] text-[#FAFAFA]  flex flex-col items-center justify-center  pt-14 md:pt-20 pb-10">
+
+      <div className=" mx-auto pl-6 md:pl-0 pb-10  gap-6 gap-y-14  grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
+
+        <div className="flex flex-col gap-4 ">
+          <h1 className="font-bold capitalize text-2xl mb-4">exclusive</h1>
+          <h2 className="font-medium capitalize text-lg">subscribe</h2>
+          <p className="text-[14px] ">Get 10% off your first order</p>
+          <div className="flex items-center border border-[#FAFAFA] rounded-sm cursor-pointer">
+          <input type="text" placeholder="Enter your email" className=" w-[90%] active:border-0 focus:border-0 outline-none  bg-transparent border-none rounded-sm text-white p-2 placeholder:text-white "/>
+          <img src={sendemail} className="w-5 h-5  " />
+          </div>
+        </div>
+
+          
+        <div className="flex flex-col gap-4">
+        <h1 className="font-medium capitalize text-xl mb-4">support</h1>
+        <p className="text-[14px] ">111 Bijoy sarani, Dhaka,<br />  DH 1515, Bangladesh.</p>
+        <p className="text-[14px] ">exclusive@gmail.com</p>
+        <p className="text-[14px] ">+88015-88888-9999</p>
+        </div>
+         
+
+        <div className="flex flex-col gap-4">
+        <h1 className="font-medium capitalize text-xl mb-2">Account</h1>
+        <p className="text-[14px] ">My Account</p>
+        <p className="text-[14px] ">Login / Register</p>
+        <p className="text-[14px] ">Cart</p>
+        <p className="text-[14px] ">Wishlist</p>
+        <p className="text-[14px] ">Shop</p>
+        </div>
+
+        <div className="flex flex-col gap-4">
+        <h1 className="font-medium capitalize text-xl mb-2">Quick Link</h1>
+        <p className="text-[14px] ">Privacy Policy</p>
+        <p className="text-[14px] ">Terms of Use</p>
+        <p className="text-[14px] ">FAQ</p>
+        <p className="text-[14px] ">Contact</p>
+        </div>
+
+        
+       
+        <div className="flex flex-col gap-4">
+        <h1 className="font-medium capitalize text-xl mb-2">downlaod app</h1>
+        <p className="text-[13px] capitalize">save $3 with app new user only</p>
+          <div className="flex flex-col gap-2 ">
+            <div className="flex">
+            <img src={scan} className="" />
+            <img src={google} className="" />
+            </div>
+
+            <div className="flex gap-4">
+            <img src={facebook} className="w-4 h-4" />
+            <img src={x} className="w-4 h-4" />
+            <img src={insta} className="w-4 h-4" />
+            <img src={lind} className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="border-t border-[#FFFFFF]/70 w-full  flex items-center justify-center p-8 gap-2">
+      <img src={copyright} className="w-5 h-5 " />
+      <p className="text-[16px] text-[#FFFFFF]/70 ">Copyright Rimel 2022. All right reserved</p>
+      </div>
+
+    </footer>
   );
 };

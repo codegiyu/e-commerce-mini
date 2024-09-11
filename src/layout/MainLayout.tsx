@@ -4,7 +4,7 @@ import { Footer } from "./Footer";
 
 export const MainLayout = ({ children }: ChildrenOnly) => {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] w-full min-h-screen">
+    <div className="grid grid-rows-[auto_1fr_auto] min-h-screen w-full  ">
       <Header />
       <main className="">
         {children}
