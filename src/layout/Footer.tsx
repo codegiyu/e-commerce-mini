@@ -1,5 +1,5 @@
 export const Footer = () => {
   return (
-    <footer className="">Footer</footer>
+    <footer className="bg-yellow-400">Footer</footer>
   );
 };
