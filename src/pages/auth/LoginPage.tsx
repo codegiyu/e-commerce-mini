@@ -30,8 +30,8 @@ const LoginPage = () => {
           <button
             type="submit"
             className="bg-[#DB4444] py-4 
-            lg:px-32 rounded-sm
-             text-white text-[16px] font-medium w-[143px]"
+            lg:px-30 rounded-sm
+             text-white text-[16px] font-medium  w-[143px]"
           >
             LogIn
           </button>
