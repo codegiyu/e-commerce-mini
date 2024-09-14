@@ -9,7 +9,7 @@ export const AuthLayout = ({ children }: ChildrenOnly) => {
         <section className="image-section bg-blue-gray w-full h-full">
           <img src={Image} alt="image-icom" className="w-full h-full" />
         </section>
-        <section className="form-section">
+        <section className="form-section flex items-center lg:justify-end justify-center p-6">
           {children}
         </section>
       </section>

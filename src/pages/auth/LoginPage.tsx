@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <AuthLayout>
 
-      <form action="" className=" flex flex-col gap-[48px] lg:w-[500px] lg:mx-auto p-3  h-full mt-5 lg:mt-0">
+      <form action="" className=" flex flex-col gap-4 w-full max-w-[371px]">
         <div className="flex flex-col gap-2 text-center lg:text-left">
           <h1 className="text-[25px] md:text-[30px] lg:text-[36px] font-medium">Log in to Exclusive</h1>
           <p className="text-[16px] font-normal">Enter your details below</p>
@@ -30,7 +30,7 @@ const LoginPage = () => {
           <button
             type="submit"
             className="bg-[#DB4444] py-4 
-            lg:px-30 rounded-sm
+            lg:px-3 rounded-sm
              text-white text-[16px] font-medium  w-[143px]"
           >
             LogIn
