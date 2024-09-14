@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SignUP = () => {
   return (
     <AuthLayout>
-      <form action="" className="flex flex-col gap-4 w-full max-w-[371px]">
+      <form action="" className="flex flex-col gap-3 w-full max-w-[371px]">
         <div className="flex flex-col gap-2 text-center lg:text-left">
           <h1 className="text-[25px] md:text-[30px] lg:text-[36px] font-medium">Create an account</h1>
           <p className="text-[16px] font-normal">Enter your details below</p>
@@ -15,19 +15,19 @@ const SignUP = () => {
             type="text"
             placeholder="Name"
             id="name"
-            className="border-b border-gray-400 text-xs px-4 py-4 outline-none w-full"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
           />
           <input
             type="text"
             placeholder="Email"
             id="email"
-            className="border-b border-gray-400 text-xs px-4 py-4 outline-none"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
           />
           <input
             type="text"
             placeholder="password"
             id="password"
-            className="border-b border-gray-400 text-xs px-4 py-4 outline-none"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
           />
         </div>
         <div className="flex flex-col gap-[16px]">

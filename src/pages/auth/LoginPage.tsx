@@ -15,13 +15,13 @@ const LoginPage = () => {
             type="text"
             placeholder="Email"
             id="email"
-            className="border-b border-gray-400 text-xs px-4 py-4 outline-none"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none "
           />
           <input
             type="text"
             placeholder="password"
             id="password"
-            className="border-b border-gray-400 text-xs px-4 py-4 outline-none"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
           />
         </div>
 
