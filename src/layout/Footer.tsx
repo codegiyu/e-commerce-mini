@@ -6,11 +6,14 @@ import x from "../assets/x.svg"
 import lind from "../assets/lind.svg"
 import insta from "../assets/insta.svg"
 import facebook from "../assets/facebook.svg"
+import { footerLinkItem } from "@/constants/data"
+
+
 
 
 export const Footer = () => {
   return (
-    <footer className=" bg-[#000000] text-[#FAFAFA]  flex flex-col items-center justify-center  pt-14 md:pt-20 pb-10">
+    <footer className=" bg-[#000000] text-[#FAFAFA]  flex flex-col items-center justify-center  pt-14 md:pt-20 pb-10 px-10">
 
       <div className=" mx-auto pl-6 md:pl-0 pb-10  gap-6 gap-y-14  grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
 
@@ -24,31 +27,24 @@ export const Footer = () => {
           </div>
         </div>
 
-          
-        <div className="flex flex-col gap-4">
-        <h1 className="font-medium capitalize text-xl mb-4">support</h1>
-        <p className="text-[14px] ">111 Bijoy sarani, Dhaka,<br />  DH 1515, Bangladesh.</p>
-        <p className="text-[14px] ">exclusive@gmail.com</p>
-        <p className="text-[14px] ">+88015-88888-9999</p>
-        </div>
+
+{
+  footerLinkItem.map(item=>(
+    <div key={item.id} className="flex flex-col gap-2">
+        <h1 className="text-xl mb-4 font-semibold capitalize">{item.name} </h1>
+        <p className="">{item.links.hd1} </p>
+        <p className="">{item?.links?.hd2} </p>
+        <p className="">{item?.links?.hd3} </p>
+        <p className="">{item?.links?.hd4} </p>
+        <p className="">{item?.links?.hd5} </p>
+    </div>
+  ))
+}
+        
+       
          
 
-        <div className="flex flex-col gap-4">
-        <h1 className="font-medium capitalize text-xl mb-2">Account</h1>
-        <p className="text-[14px] ">My Account</p>
-        <p className="text-[14px] ">Login / Register</p>
-        <p className="text-[14px] ">Cart</p>
-        <p className="text-[14px] ">Wishlist</p>
-        <p className="text-[14px] ">Shop</p>
-        </div>
-
-        <div className="flex flex-col gap-4">
-        <h1 className="font-medium capitalize text-xl mb-2">Quick Link</h1>
-        <p className="text-[14px] ">Privacy Policy</p>
-        <p className="text-[14px] ">Terms of Use</p>
-        <p className="text-[14px] ">FAQ</p>
-        <p className="text-[14px] ">Contact</p>
-        </div>
+      
 
         
        
