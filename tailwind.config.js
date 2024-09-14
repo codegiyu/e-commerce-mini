@@ -4,6 +4,10 @@ export default {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
   	extend: {
+      screens: {
+        '2xl': '1536px',
+        '3xl': '1780px'
+      },
   		colors: {
   			primary: '#DB4444',
   			'blue-gray': '#CBE4E8'
