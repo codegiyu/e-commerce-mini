@@ -1,8 +1,16 @@
 import { AuthLayout } from "@/layout/AuthLayout";
 import GImage from "../../assets/Google.png"
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const SignUP = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [password, setPassword] = useState("")
+  const togglePasswordVisibility = () =>{
+    setShowPassword(!showPassword)
+  }
   return (
     <AuthLayout>
       <form action="" className="flex flex-col gap-3 w-full max-w-[371px]">
@@ -23,12 +31,20 @@ const SignUP = () => {
             id="email"
             className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
           />
-          <input
-            type="text"
-            placeholder="password"
-            id="password"
-            className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
-          />
+          <div className="relative ">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              id="password"
+              className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
+            />
+            <button className="absolute inset-y-0 right-0 px-2 py-2
+             text-gray-400" type="button" onClick={togglePasswordVisibility}>
+              {showPassword ? <FontAwesomeIcon icon={faEyeSlash}/>: <FontAwesomeIcon icon={faEye}/>}
+            </button>
+          </div>
         </div>
         <div className="flex flex-col gap-[16px]">
           <button
