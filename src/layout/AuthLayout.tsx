@@ -1,6 +1,6 @@
 import { ChildrenOnly } from "@/lib/types/general";
 import { MainLayout } from "./MainLayout";
-import Image from "../../src/assets/logSignImage.jpg"
+import Image from "../../src/assets/logSignImage.jpg";
 
 export const AuthLayout = ({ children }: ChildrenOnly) => {
   return (
