@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useForm, FieldErrors } from "react-hook-form"
+import { useForm} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z, ZodType } from "zod";
 
@@ -16,19 +16,19 @@ type FormInfo = {
 
 const SignUP = () => {
   const [showPassword, setShowPassword] = useState(false)
-  const [password, setPassword] = useState("")
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
   const schema: ZodType<FormInfo> = z.object({
     name: z.string().min(2).max(50),
     email: z.string().email("Enter a valid email"),
-    password: z.string().min(5, "password must have least of 5 characters").max(20, "password cant exceed 20 characters")
+    password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
   });
 
   const { register, handleSubmit,
     formState: { errors }
   } = useForm<FormInfo>({ resolver: zodResolver(schema) })
+
 
   const submitData = (data: FormInfo) => {
     console.log("submitted success", data)
@@ -60,7 +60,7 @@ const SignUP = () => {
             id="email"
             required
             {...register("email")}
-            className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
+            className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full bg-transparent"
           />
           {errors.email && <span className="text-red-500 font-bold">{errors.email.message}</span>}
 
@@ -112,5 +112,8 @@ const SignUP = () => {
 
   );
 };
+
+
+      
 
 export default SignUP;
