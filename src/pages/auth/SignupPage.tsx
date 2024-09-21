@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import {useForm} from "react-hook-form"
+import {zodResolver} from "@hookform/resolvers/zod"
+import  {z, ZodType} from "zod";
+
+type FormInfo = {
+  name: string;
+  email: string;
+  password: string;
+};
 
 const SignUP = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -11,9 +20,19 @@ const SignUP = () => {
   const togglePasswordVisibility = () =>{
     setShowPassword(!showPassword)
   }
+  const schema:ZodType<FormInfo> = z.object({
+      name: z.string().min(2).max(50),
+      email: z.string().email(),
+      password: z.string().min(5).max(20)
+  });
+  
+  const {register, handleSubmit} = useForm<FormInfo>({resolver:zodResolver(schema)})
+  const submitData = (data: FormInfo) =>{
+    console.log("submitted success", data)
+  }
   return (
     <AuthLayout>
-      <form action="" className="flex flex-col gap-3 w-full max-w-[371px]">
+      <form action="" onSubmit={handleSubmit(submitData)} className="flex flex-col gap-3 w-full max-w-[371px]">
         <div className="flex flex-col gap-2 text-center lg:text-left">
           <h1 className="text-[25px] md:text-[30px] lg:text-[36px] font-medium">Create an account</h1>
           <p className="text-[16px] font-normal">Enter your details below</p>
@@ -23,12 +42,14 @@ const SignUP = () => {
             type="text"
             placeholder="Name"
             id="name"
+            {...register("name")}
             className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
           />
           <input
             type="text"
             placeholder="Email"
             id="email"
+            {...register("email")}
             className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
           />
           <div className="relative ">
@@ -36,6 +57,7 @@ const SignUP = () => {
               type={showPassword ? "text" : "password"}
               placeholder="password"
               value={password}
+              {...register("password")}
               onChange={e => setPassword(e.target.value)}
               id="password"
               className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
