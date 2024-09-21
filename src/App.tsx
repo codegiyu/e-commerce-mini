@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/auth/LoginPage';
 import SignupPage from './pages/auth/SignupPage';
 import NoPage from './pages/404';
+import ProductCard from './components/ProductCard';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         {/* Authenticated Pages */}
 
         {/* 404 page */}
-        <Route path='*' element={<NoPage />} />
+        <Route path='*' element={<ProductCard />} />
       </Routes>
     </Router>
   )
