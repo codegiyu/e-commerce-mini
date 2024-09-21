@@ -26,12 +26,13 @@ const SignUP = () => {
   });
 
   const { register, handleSubmit,
-    formState: { errors }
+    formState: { errors }, reset
   } = useForm<FormInfo>({ resolver: zodResolver(schema) })
 
 
   const submitData = (data: FormInfo) => {
     console.log("submitted success", data)
+    reset();
   }
   return (
     <AuthLayout>

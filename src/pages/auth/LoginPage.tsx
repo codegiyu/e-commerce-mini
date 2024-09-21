@@ -20,10 +20,11 @@ const LoginPage = () => {
     email: z.string().email("Enter a valid email"),
     password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
   });
-  const { register, handleSubmit, formState:{errors} } = useForm<LoginData>({ resolver: zodResolver(schema) })
+  const { register, handleSubmit, formState:{errors}, reset } = useForm<LoginData>({ resolver: zodResolver(schema) })
 
   const submitDate = (data: LoginData) => {
     console.log("successfully login", data)
+    reset();
   }
   return (
     <AuthLayout>
