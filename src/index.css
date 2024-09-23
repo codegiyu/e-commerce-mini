@@ -15,4 +15,12 @@
   .container-auth {
     @apply w-full pl-0 pr-4 sm:pr-10 xl:pr-[calc((100%_-_1170px)_/_2)] 2xl:pr-[calc((100%_-_1250px)_/_2)] 3xl:pr-[calc((100%_-_1320px)_/_2)];
   }
+
+  .shadowgen{
+    -webkit-box-shadow: 5px 0px 11px 38px rgba(255,255,255,0.65); 
+    box-shadow: 5px 0px 11px 38px rgba(255,255,255,0.65);
+    background-color:red;
+  }
 }
+
+
