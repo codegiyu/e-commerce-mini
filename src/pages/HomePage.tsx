@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <MainLayout>
       <div>Home Page</div>
-      <Featured />
+
     </MainLayout>
   );
 };
