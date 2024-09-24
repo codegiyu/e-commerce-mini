@@ -11,9 +11,10 @@ import { footerLinkItem } from "@/constants/data"
 
 
 
+
 export const Footer = () => {
   return (
-    <footer className="bg-[#000000] text-[#FAFAFA]  flex flex-col items-center justify-center container-main pt-14 md:pt-20 pb-10">
+    <footer className="bg-[#000000] text-[#FAFAFA]  flex flex-col items-center justify-center container-main pt-14 md:pt-20 ">
       <div className="w-full md:pl-0 pb-10 gap-6 gap-y-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
         <div className="flex flex-col gap-4 ">
           <h1 className="font-bold capitalize text-2xl mb-4">exclusive</h1>
@@ -27,13 +28,17 @@ export const Footer = () => {
 
         {
           footerLinkItem.map(item=>(
-            <div key={item.id} className="flex flex-col gap-2">
+            <div key={item.name} className="flex flex-col gap-2">
                 <h1 className="text-xl mb-4 font-semibold capitalize">{item.name} </h1>
-                <p className="">{item.links.hd1} </p>
-                <p className="">{item?.links?.hd2} </p>
-                <p className="">{item?.links?.hd3} </p>
-                <p className="">{item?.links?.hd4} </p>
-                <p className="">{item?.links?.hd5} </p>
+                <div className="flex flex-col gap-2">
+                {
+                   item.links.map(item=>(
+                    <div className="">
+                      <a href={item?.path}   >{item.title} </a>
+                    </div>
+                   ))
+                }
+                </div>
             </div>
           ))
         }
@@ -57,9 +62,9 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-[#FFFFFF]/70 w-full  flex items-center justify-center p-8 gap-2">
-        <img src={copyright} className="w-5 h-5 " />
-        <p className="text-[16px] text-[#FFFFFF]/70 ">Copyright Rimel 2022. All right reserved</p>
+      <div className="border-t border-[#FFFFFF]/10 w-full  flex items-center justify-center p-8 gap-2">
+        <img src={copyright} className="w-5 h-5 text-[#FFFFFF]/20 stroke-red-600" />
+        <p className="text-[16px] text-[#FFFFFF]/20 ">Copyright Rimel 2022. All right reserved</p>
       </div>
     </footer>
   );

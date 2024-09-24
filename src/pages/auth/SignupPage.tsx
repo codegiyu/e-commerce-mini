@@ -9,9 +9,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z, ZodType } from "zod";
 
 type FormInfo = {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
+  confirmPassword: string;
 };
 
 const SignUP = () => {
@@ -20,10 +22,15 @@ const SignUP = () => {
     setShowPassword(!showPassword)
   }
   const schema: ZodType<FormInfo> = z.object({
-    name: z.string().min(2).max(50),
+    firstName: z.string().min(2).max(50),
+    lastName: z.string().min(2).max(50),
     email: z.string().email("Enter a valid email"),
-    password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
-  });
+    password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters"),
+    confirmPassword: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
+  }).refine((data) => data.password === data.confirmPassword,{
+    message:"Password do not match",
+    path:["confirmPassword"]
+  })
 
   const { register, handleSubmit,
     formState: { errors }, reset
@@ -43,16 +50,27 @@ const SignUP = () => {
         </div>
 
         <div className="flex flex-col gap-5 w-full">
-          {/* Name Field */}
+          {/* First Name Field */}
           <input
             type="text"
-            placeholder="Name"
-            id="name"
+            placeholder="First Name"
+            id="firstName"
             required
-            {...register("name")}
-            className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
+            {...register("firstName")}
+            className="border-b border-gray-400 text-[16px] px-4 py-4 outline-none w-full"
           />
-          {errors.name && <span className="text-red-500 font-bold">{errors.name.message}</span>}
+          {errors.firstName && <span className="text-red-500 font-bold">{errors.firstName.message}</span>}
+
+            {/* Last Name Field */}
+           <input
+            type="text"
+            placeholder="Last Name"
+            id="lastName"
+            required
+            {...register("lastName")}
+            className="border-b border-gray-400 text-[16px]  px-4 py-4 outline-none w-full"
+          />
+          {errors.lastName && <span className="text-red-500 font-bold">{errors.lastName.message}</span>}
 
           {/* Email Field */}
           <input
@@ -61,7 +79,7 @@ const SignUP = () => {
             id="email"
             required
             {...register("email")}
-            className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full bg-transparent"
+            className="border-b border-gray-400 text-[16px] px-4 py-4 outline-none w-full bg-transparent"
           />
           {errors.email && <span className="text-red-500 font-bold">{errors.email.message}</span>}
 
@@ -73,9 +91,29 @@ const SignUP = () => {
               required
               {...register("password")}
               id="password"
-              className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
+              className="border-b border-gray-400 text-[16px]  px-4 py-4 outline-none w-full"
             />
             {errors.password && <span className="text-red-500 font-bold">{errors.password.message}</span>}
+            <button
+              className="absolute inset-y-0 right-0 px-2 py-2 text-gray-400"
+              type="button"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
+            </button>
+          </div>
+          
+          {/* confirm Password Field */}
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+              required
+              {...register("confirmPassword")}
+              id="password"
+              className="border-b border-gray-400 text-[16px]  px-4 py-4 outline-none w-full"
+            />
+            {errors.confirmPassword && <span className="text-red-500 font-bold">{errors.confirmPassword.message}</span>}
             <button
               className="absolute inset-y-0 right-0 px-2 py-2 text-gray-400"
               type="button"
@@ -89,7 +127,7 @@ const SignUP = () => {
         <div className="flex flex-col gap-[16px]">
           <button
             type="submit"
-            className="bg-[#DB4444] py-4 lg:px-32 rounded-sm w-full text-white text-[16px] font-medium"
+            className="bg-[#DB4444] py-4 lg:px-30 rounded-sm w-full text-white text-[16px] font-medium"
           >
             Create Account
           </button>
