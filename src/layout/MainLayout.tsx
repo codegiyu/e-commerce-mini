@@ -6,9 +6,7 @@ export const MainLayout = ({ children }: ChildrenOnly) => {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen w-full  ">
       <Header />
-      <main className="">
-        {children}
-      </main>
+      <main className="">{children}</main>
       <Footer />
     </div>
   );
