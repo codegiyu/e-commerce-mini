@@ -1,11 +1,35 @@
 import { AuthLayout } from "@/layout/AuthLayout";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z, ZodType } from "zod";
 
+type LoginData = {
+  email: string;
+  password: string;
+}
 const LoginPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword)
+  }
+  const schema: ZodType<LoginData> = z.object({
+    email: z.string().email("Enter a valid email"),
+    password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
+  });
+  const { register, handleSubmit, formState:{errors}, reset } = useForm<LoginData>({ resolver: zodResolver(schema) })
+
+  const submitDate = (data: LoginData) => {
+    console.log("successfully login", data)
+    reset();
+  }
   return (
     <AuthLayout>
 
-      <form action="" className=" flex flex-col gap-4 w-full max-w-[371px]">
+      <form action="" onSubmit={handleSubmit(submitDate)} className=" flex flex-col gap-4 w-full max-w-[371px]">
         <div className="flex flex-col gap-2 text-center lg:text-left">
           <h1 className="text-[25px] md:text-[30px] lg:text-[36px] font-medium">Log in to Exclusive</h1>
           <p className="text-[16px] font-normal">Enter your details below</p>
@@ -15,14 +39,26 @@ const LoginPage = () => {
             type="text"
             placeholder="Email"
             id="email"
+            {...register("email")}
             className="border-b border-gray-400 text-lg px-4 py-4 outline-none "
           />
-          <input
-            type="text"
-            placeholder="password"
-            id="password"
-            className="border-b border-gray-400 text-lg px-4 py-4 outline-none"
-          />
+            {errors.email && <span className="text-red-500 font-bold">{errors.email.message}</span>}
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="password"
+              id="password"
+              {...register("password")}
+              className="border-b border-gray-400 text-lg px-4 py-4 outline-none w-full"
+            />
+             {errors.password && <span className="text-red-500 font-bold">{errors.password.message}</span>}
+            <button type="button" className="absolute inset-y-0 right-0 px-2 py-2 text-gray-400"
+              onClick={togglePasswordVisibility}>
+              {showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}
+            </button>
+
+          </div>
+
         </div>
 
 
