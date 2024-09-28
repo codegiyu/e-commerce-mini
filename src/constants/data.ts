@@ -84,7 +84,9 @@ export const footerLinkItem = [
        color:["red","blue"],
        price:123,
        image:img1,
-       rating:3.5
+       rating:3.5,
+       isNew:true,
+       isDiscount:"20%"
     },
     {
        name:"Dslr camera-No Discount",
@@ -92,28 +94,37 @@ export const footerLinkItem = [
        price:123,
        image:img2,
        new:"new",
-       rating:3
+       rating:3,
+       isNew:true,
+       isDiscount:"15%"
     },
     {
        name:"Laptop-no discount",
        color:["red","blue"],
        price:123,
        image:img3,
-       rating:4
+       rating:4,
+        isNew:false,
+       isDiscount:"10%"
     },
     {
        name:"Curology product set",
        color:["red","blue"],
        price:123,
        image:img4,
-       rating:2
+       rating:2,
+        isNew:true,
+       isDiscount:"15%"
     },
     {
        name:"Kids car-with color choosing",
        color:["red","blue"],
        price:123,
        image:img5,
-       rateing:4
+       rating:4,
+        isNew:true,
+       isDiscount:"5%"
+
     },
     {
        name:"Soccer boat-color choosing",
@@ -121,20 +132,26 @@ export const footerLinkItem = [
        price:123,
        image:img6,
          new:"new",
-         rating:4
+         rating:4,
+          isNew:false,
+      
     },
     {
        name:"Gaming control-color choosing",
        color:["red","blue"],
        price:123,
        image:img7,
-       rating:1
+       rating:1,
+        isNew:true,
+       isDiscount:"15%"
     },
     {
        name:"Man jacket-color choosing",
        color:["red","blue"],
        price:123,
        image:img8,
-       rating:2
+       rating:2,
+        isisNew:true,
+      
     },
   ]
