@@ -98,5 +98,5 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
           </div>
   )
 }
-
+  
 export default SingleCard
