@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const Header = ({ title, label, timer, children } : HeaderProps) => {
   return (
-    <section className='flex justify-between'>
+    <section className='flex justify-between w-full'>
         <div className='flex gap-[87px]'>
             <div className='flex flex-col gap-5'>
                 <div className='text-primary flex gap-[10px] items-center'>

@@ -5,6 +5,7 @@ import SignupPage from './pages/auth/SignupPage';
 import NoPage from './pages/404';
 import ProductCard from './components/ProductCard';
 import CartPage from './pages/CartPage';
+import AboutPage from './pages/About';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path ='/cart' element={<CartPage/>}/>
+        <Route path='/About' element={<AboutPage />} />
     
 
         {/* Authenticated Pages */}
