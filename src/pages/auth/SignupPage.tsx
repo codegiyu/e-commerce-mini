@@ -127,7 +127,7 @@ const SignUP = () => {
         <div className="flex flex-col gap-[16px]">
           <button
             type="submit"
-            className="bg-[#DB4444] py-4 lg:px-30 rounded-sm w-full text-white text-[16px] font-medium"
+            className="bg-[#DB4444] py-4 lg:px-30 rounded-sm w-full text-white text-[16px] font-medium hover:bg-[#CBE4E8] hover:text-black"
           >
             Create Account
           </button>
