@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z, ZodType } from "zod";
+import { RegularBtn } from "@/components/atoms/RegularBtn";
+import { debounce } from "@/lib/utils/general";
 
 type LoginData = {
   email: string;
@@ -13,6 +15,7 @@ type LoginData = {
 }
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
@@ -20,10 +23,22 @@ const LoginPage = () => {
     email: z.string().email("Enter a valid email"),
     password: z.string().min(5, "Password must have least of 5 characters").max(20, "Password cant exceed 20 characters")
   });
-  const { register, handleSubmit, formState:{errors}, reset } = useForm<LoginData>({ resolver: zodResolver(schema) })
+  const {
+    register,
+    handleSubmit,
+    formState:{
+      errors,
+      isValid
+    },
+    reset
+  } = useForm<LoginData>({ resolver: zodResolver(schema) })
 
-  const submitDate = (data: LoginData) => {
-    console.log("successfully login", data)
+  const submitDate = async (data: LoginData) => {
+    console.log("successfully login", data);
+
+    setLoading(true);
+    await debounce(3000);
+    setLoading(false);
     reset();
   }
   return (
@@ -63,14 +78,19 @@ const LoginPage = () => {
 
 
         <div className="flex items-center justify-between  gap-[10px]">
-          <button
+          {/* <button
             type="submit"
             className="bg-[#DB4444] py-4 
             lg:px-3 rounded-sm
              text-white text-[16px] font-medium  w-[143px]"
           >
             LogIn
-          </button>
+          </button> */}
+          <RegularBtn 
+            type="submit" 
+            text={loading ? 'Logging in...' : 'Login'}
+            disabled={!isValid || loading}
+          />
           <h2 className="font-normal text-[16px] text-[#DB4444]">forgot password ?</h2>
         </div>
         <div className="flex items-center  w-[248px] mx-auto gap-2">
