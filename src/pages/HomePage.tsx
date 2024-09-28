@@ -1,11 +1,12 @@
+import { MainLayout } from "@/layout/MainLayout"
+import { Services } from "@/sections/services"
 import Featured from "@/components/featured/featured";
-import { MainLayout } from "@/layout/MainLayout";
 
 const HomePage = () => {
   return (
     <MainLayout>
-      <div>Home Page</div>
       <Featured />
+      <Services />
     </MainLayout>
   );
 };
