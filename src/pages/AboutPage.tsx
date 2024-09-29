@@ -12,6 +12,8 @@ const AboutPage = () => {
             <SliderNavBtn direction="left" />
             <OutlineBtn text="See all" />
           </section>
+
+          {/*  */}
       </MainLayout>
     )
 }
