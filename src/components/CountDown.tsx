@@ -1,6 +1,4 @@
-
 import Countdown from 'react-countdown';
-import countdown from "../assets/countdown.png"
 import elis from "../assets/elis.png"
 import { Button } from './ui/button';
 
