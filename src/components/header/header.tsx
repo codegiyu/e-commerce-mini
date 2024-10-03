@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 
-// Define Header prop types
 interface HeaderProps {
     title: string;          
     label: string;          
@@ -19,7 +18,6 @@ export const Header = ({ title, label, timer, children } : HeaderProps) => {
                 </div>
                 <h3 className="text-4xl font-semibold">{title}</h3>
             </div>
-            {/* Timer will appear here if passed as prop */}
             {timer && <div className="mt-auto">{timer}</div>}
         </div>
         {children}
