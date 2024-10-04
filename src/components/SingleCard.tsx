@@ -3,7 +3,8 @@ import heart from "../assets/heart.png";
 import StarRating from "./StarRating";
 import { Button } from './ui/button';
 
-type CardType={
+export type CardType = {
+    id: string;
     img:string,
     name:string,
     star?:number,
@@ -18,7 +19,7 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
     const[select,setSelected]=useState("")
     
 
-    const handleSelect = (item:string,idx:number)=>{
+    const handleSelect = (item:string, idx:number)=>{
        
         setSelected(item)
        
