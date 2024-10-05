@@ -1,35 +1,157 @@
+import img1 from "../assets/img1.png"
+import img2 from "../assets/img2.png"
+import img3 from "../assets/img3.png"
+import img4 from "../assets/img4.png"
+import img5 from "../assets/img5.png"
+import img6 from "../assets/img6.png"
+import img7 from "../assets/img7.png"
+import img8 from "../assets/img8.png"
+
 export const footerLinkItem = [
     {
-      id:1,
-      name:"Support",
-      links:{
-        hd1:"111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh.",
-        hd2:"exclusive@gmail.com",
-        hd3:"+88015-88888-9999",
-    }
+       name:"Support",
+      links:[
+        {
+          
+         title:"111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh."
+        },
+        {
+         title:"exclusive@gmail.com.",
+         path:"mailto:exclusive@gmail.com"
+        },
+        {
+         tile:"+88015-88888-9999",
+         path:"tel:+88015-88888-9999"
+        },
+
+     ],
+      
     },
     {
-      id:2,
       name:"Account",
-      links:{
-        hd1:"My Account",
-        hd2:"Login / Register",
-        hd3:"Cart",
-        hd4:"Wishlist",
-        hd5:"Shop",
-  
-      }
+      links:[
+         {
+          title:"My Account",
+          path:"#"
+         },
+         {
+          title:"Login / Register",
+          path:"#"
+         },
+         {
+          title:"Cart",
+          path:"#"
+         },
+         {
+          title:"Wishlist",
+          path:"#"
+         },
+         {
+          title:"Shop",
+          path:"#"
+         }  
+      ]
     },
     {
-      id:3,
       name:"Quick Link",
-      links:{
-        hd1:"Privacy Policy",
-        hd2:"Terms Of Use",
-        hd3:"FAQ",
-        hd4:"Contact",
+      links:[
+        
+          {
+            title:"Privacy Policy",
+            path:"#"
+           },
+           {
+            title:"Terms Of Use",
+            path:"#"
+           },
+           {
+            title:"Contact",
+            path:"#"
+           } 
+      ]
+        
   
-      }
+      
     }
   ]
   
+
+  
+
+  export const productCard = [
+    {
+       name:"Dog Food-No Discount",
+       color:["red","blue"],
+       price:123,
+       image:img1,
+       rating:3.5,
+       isNew:true,
+       isDiscount:"20%"
+    },
+    {
+       name:"Dslr camera-No Discount",
+       color:["red","blue"],
+       price:123,
+       image:img2,
+       new:"new",
+       rating:3,
+       isNew:true,
+       isDiscount:"15%"
+    },
+    {
+       name:"Laptop-no discount",
+       color:["red","blue"],
+       price:123,
+       image:img3,
+       rating:4,
+        isNew:false,
+       isDiscount:"10%"
+    },
+    {
+       name:"Curology product set",
+       color:["red","blue"],
+       price:123,
+       image:img4,
+       rating:2,
+        isNew:true,
+       isDiscount:"15%"
+    },
+    {
+       name:"Kids car-with color choosing",
+       color:["red","blue"],
+       price:123,
+       image:img5,
+       rating:4,
+        isNew:true,
+       isDiscount:"5%"
+
+    },
+    {
+       name:"Soccer boat-color choosing",
+       color:["red","blue"],
+       price:123,
+       image:img6,
+         new:"new",
+         rating:4,
+          isNew:false,
+      
+    },
+    {
+       name:"Gaming control-color choosing",
+       color:["red","blue"],
+       price:123,
+       image:img7,
+       rating:1,
+        isNew:true,
+       isDiscount:"15%"
+    },
+    {
+       name:"Man jacket-color choosing",
+       color:["red","blue"],
+       price:123,
+       image:img8,
+       rating:2,
+        isisNew:true,
+      
+    },
+  ]
