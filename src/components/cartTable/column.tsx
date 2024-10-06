@@ -12,7 +12,7 @@ export type CartItem = {
   quantity: number;
 }
 
-type ProductColumn = Pick<CartItem, "id" | "image" | "name">;
+type ProductColumn = Pick<CartItem, "id" | "image" | "name" >;
 // type ProductColumn = Omit<CartItem, "id" | "image" | "name">;
 
 export const cartColumns: ColumnDef<CartItem>[] = [
@@ -21,7 +21,7 @@ export const cartColumns: ColumnDef<CartItem>[] = [
     accessorFn: row => ({ id: row.id, name: row.name, image: row.image }) satisfies ProductColumn,
     header: () => (
       <div>
-        <h2>Product</h2>
+        <h2 className="text-[16px] font-poppins font-normal text-black">Product</h2>
       </div>
     ),
     cell: ({row}) => {
@@ -29,9 +29,10 @@ export const cartColumns: ColumnDef<CartItem>[] = [
 
       return (
         <div className="flex items-center gap-6">
-          <div className="relative">
-            <img src={image} alt={name} className="w-[3.25rem] h-[3.25rem] object-cover" />
-            <button className="absolute inset-0 text-red-800">X</button>
+          <div className="relative group">
+            <img src={image} alt={name} className="w-[3.25rem] h-[3.25rem] object-cover cursor-pointer" />
+            <button className="absolute  text-white
+              text-bold -inset-3 right-0 -left-2 rounded-[100%] w-6 h-6 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">X</button>
           </div>
           <span>{name}</span>
         </div>
@@ -40,7 +41,7 @@ export const cartColumns: ColumnDef<CartItem>[] = [
   },
   {
     accessorKey: "price",
-    header: "Price",
+    header: "Price"
   },
   {
     accessorKey: "quantity",
