@@ -1,19 +1,17 @@
 import { MainLayout } from "@/layout/MainLayout";
+import { Metrics } from "@/sections/aboutMetrics";
 import { Ourstory } from "@/sections/Ourstory";
 import { Services } from "@/sections/Services";
 
 const AboutPage = () => {
     return (
       <MainLayout>
-          <section className="">
+          <section className="space-y-16">
             <Ourstory />
+            <Metrics />
             <Services />       
           </section>
       </MainLayout>
     )
 }
 export default AboutPage
-{/* <RegularBtn text="View all products" />
-  <RegularBtn text="This is a full width button" fullWidth />
-  <SliderNavBtn direction="left" />
-  <OutlineBtn text="See all" /> */}
