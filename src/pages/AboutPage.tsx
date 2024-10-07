@@ -1,6 +1,6 @@
 import { MainLayout } from "@/layout/MainLayout";
-import { Metrics } from "@/sections/aboutMetrics";
-import { Ourstory } from "@/sections/Ourstory";
+import { Metrics } from "@/sections/about/aboutMetrics";
+import { Ourstory } from "@/sections/about/Ourstory";
 import { Services } from "@/sections/Services";
 
 const AboutPage = () => {
@@ -9,7 +9,7 @@ const AboutPage = () => {
           <section className="space-y-16">
             <Ourstory />
             <Metrics />
-            <Services />       
+            {/* <Services />        */}
           </section>
       </MainLayout>
     )
