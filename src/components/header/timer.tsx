@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 
 const Timer = () => {
-  // Starts with a countdown from 4 days in seconds (3 days * 24 hours * 3600 seconds)
-  const initialTime = 4 * 24 * 60 * 60; // 4 days in seconds
+  // Starts with a countdown
+  const initialTime = 4 * 24 * 60 * 60; 
   const [time, setTime] = useState(initialTime);
 
   useEffect(() => {
-    // Sets an interval to count down every second
     const interval = setInterval(() => {
       setTime(prevTime => (prevTime > 0 ? prevTime - 1 : 0));
     }, 1000);
