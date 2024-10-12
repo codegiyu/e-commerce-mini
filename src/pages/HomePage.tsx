@@ -1,7 +1,9 @@
+
 import { MainLayout } from "@/layout/MainLayout"
 import { Services } from "@/sections/Services"
 import Featured from "@/components/featured/featured";
 import CountDown from "@/components/CountDown";
+
 
 const HomePage = () => {
   return (
