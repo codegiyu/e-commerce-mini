@@ -46,7 +46,7 @@ const CartTable = () => {
     },
   ];
   return (
-    <div className="mx-auto md:w-[90%] max-w-[1170px] mt-5 mb-20 flex flex-col gap-20">
+    <div className="md:mx-auto md:w-[90%] md:max-w-[1170px] mt-5 mb-20 flex flex-col gap-10 md:gap-20  p-3 md:p-0">
       <div className="flex items-center gap-2 md:w-[104px] p-1 ">
         <Link to="/"><span className="text-[14px] cursor-pointer">Home</span></Link>
         <span>/</span>
@@ -55,18 +55,18 @@ const CartTable = () => {
       <div className="">
         <DataTable columns={cartColumns} data={cart} />
       </div>
-      <div className=" flex items-center justify-between">
+      <div className=" flex md:flex md:flex-row md:items-center md:justify-between  flex-col gap-4 ">
         <OutlineBtn text="Return To shop" />
         <OutlineBtn text="Update Cart" />
       </div>
-      <div className="mb-12 flex items-start justify-between" >
-        <form className="md:w-[527px] p-2 flex  items-center justify-center gap-4">
-          <input className="w-[300px] p-[16px] rounded-md border font-poppins outline-none font-normal text-sm"
+      <div className="mb-12 flex flex-col md:flex-row items-start justify-between md:gap-4" >
+        <form className="md:w-[527px] w-full mb-6 p-2 flex  flex-col md:flex-row md:items-center md:justify-center gap-4">
+          <input className="md:w-[300px] p-[16px] rounded-md border font-poppins outline-none font-normal text-sm"
             placeholder="Coupon Code">
           </input>
           <RegularBtn text="Apply Coupon" />
         </form>
-        <form className="w-[470px] p-4 border border-black rounded-sm">
+        <form className="md:w-[470px] w-full p-4 border border-black rounded-sm">
           <h2 className="text-[20px] font-poppins font-medium">Cart Total</h2>
           <div className="flex items-center justify-between mb-3 mt-3">
             <span className="text-base font-poppins font-normal">SubTotal:</span>
