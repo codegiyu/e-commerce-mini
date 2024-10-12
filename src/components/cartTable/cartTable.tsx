@@ -46,20 +46,20 @@ const CartTable = () => {
     },
   ];
   return (
-    <div className="mx-auto md:w-[90%] max-w-[1170px] mt-5 mb-20">
+    <div className="mx-auto md:w-[90%] max-w-[1170px] mt-5 mb-20 flex flex-col gap-20">
       <div className="flex items-center gap-2 md:w-[104px] p-1 ">
         <Link to="/"><span className="text-[14px] cursor-pointer">Home</span></Link>
         <span>/</span>
         <span className="text-[14px]">Cart</span>
       </div>
-      <div className=" md:mt-14">
+      <div className="">
         <DataTable columns={cartColumns} data={cart} />
       </div>
-      <div className=" flex items-center justify-between mt-10">
+      <div className=" flex items-center justify-between">
         <OutlineBtn text="Return To shop" />
         <OutlineBtn text="Update Cart" />
       </div>
-      <div className="mt-12 mb-12 flex items-start justify-between" >
+      <div className="mb-12 flex items-start justify-between" >
         <form className="md:w-[527px] p-2 flex  items-center justify-center gap-4">
           <input className="w-[300px] p-[16px] rounded-md border font-poppins outline-none font-normal text-sm"
             placeholder="Coupon Code">
