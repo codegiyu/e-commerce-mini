@@ -20,8 +20,8 @@ export const cartColumns: ColumnDef<CartItem>[] = [
     id: "product",
     accessorFn: row => ({ id: row.id, name: row.name, image: row.image }) satisfies ProductColumn,
     header: () => (
-      <div>
-        <h2 className="text-[16px] font-poppins font-normal text-black">Product</h2>
+      <div className="">
+        <h2 className="text-[16px] font-poppins font-normal text-black ">Product</h2>
       </div>
     ),
     cell: ({row}) => {
@@ -41,14 +41,32 @@ export const cartColumns: ColumnDef<CartItem>[] = [
   },
   {
     accessorKey: "price",
-    header: "Price"
+    header: () => (
+      <div>
+        <h2 className="text-[16px] font-poppins font-normal text-black">Price</h2>
+      </div>
+    ),
+    cell: ({row}) => {
+      const price = row.original.price
+      return (
+         <span>${price}</span>
+      );
+    }, 
   },
   {
     accessorKey: "quantity",
-    header: "Quantity",
+    header: () => (
+      <div>
+        <h2 className="text-[16px] font-poppins font-normal text-black">Quantity</h2>
+      </div>
+    ),
   },
   {
     accessorKey: "subtotal",
-    header: "Subtotal",
+    header: () => (
+      <div>
+        <h2 className="text-[16px] font-poppins font-normal text-black">Subtotal</h2>
+      </div>
+    ),
   },
 ]

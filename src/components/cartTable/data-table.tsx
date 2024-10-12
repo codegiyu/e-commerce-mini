@@ -36,7 +36,7 @@ export function DataTable<TData, TValue>({
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id} className="px-10 py-6 bg-white rounded shadow-sm">
+            <TableRow key={headerGroup.id} className="px-10 py-6 bg-white shadow-sm rounded-lg border border-slate-100 ">
               {headerGroup.headers.map((header) => {
                 return (
                   <TableHead key={header.id}>
@@ -58,10 +58,10 @@ export function DataTable<TData, TValue>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="px-10 py-6 bg-white rounded shadow-sm mb-5"
+                className="px-10 py-6 bg-white rounded shadow-sm mb-5 "
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell key={cell.id} >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
