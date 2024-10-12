@@ -5,8 +5,11 @@ import cart from "../assets/cart.svg";
 import hamburger from "../assets/hamburger.png";
 import close from "../assets/close.png";
 import { useEffect, useState } from "react";
+import { useCartStore } from "@/lib/store/useCartStore";
 
 export const Header = () => {
+  const numberOfItemsInStore = useCartStore(state => state.numberOfItemsInStore)
+
   const [nav, setNav] = useState(false);
   const [active, setActive] = useState("/");
   const { pathname } = useLocation();
@@ -41,15 +44,15 @@ export const Header = () => {
         </Link>
         <div className="flex flex-row items-center gap-10 font-medium">
           <Link
-            to="#"
+            to="/"
             className={`${
               active === "/" ? "underline underline-offset-4" : ""
             } cursor-pointer`}
           >
             Home
           </Link>
-          <Link to="#">Contact</Link>
-          <Link to="/About">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/about">About</Link>
           <Link to="/signup">Sign Up</Link>
         </div>
         <div className="flex flex-row items-center gap-5">
@@ -62,7 +65,16 @@ export const Header = () => {
             <img src={search} className="w-4 h-4" />
           </div>
           <img src={love} className="w-5 h-5" />
-          <img src={cart} className="w-5 h-5" />
+          <Link to="/cart">
+            <div className="w-fit relative">
+              <img src={cart} className="w-5 h-5" />
+              <span 
+                className="absolute -top-1/2 -right-1/2 bg-primary rounded-full text-[0.75rem] leading-none 
+                font-poppins py-[2px] px-[4px] text-white">
+                {numberOfItemsInStore}
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="container-main lg:hidden flex flex-col md:flex-row md:items-center justify-between py-3">
