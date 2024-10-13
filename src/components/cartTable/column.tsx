@@ -1,18 +1,20 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table";
+import downArrow from "../../assets/downArrow.png"
+import upArrow from "../../assets/upArrow.png"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type CartItem = {
   id: string;
-  name:string;
+  name: string;
   image: string;
   price: number;
   quantity: number;
 }
 
-type ProductColumn = Pick<CartItem, "id" | "image" | "name" >;
+type ProductColumn = Pick<CartItem, "id" | "image" | "name">;
 // type ProductColumn = Omit<CartItem, "id" | "image" | "name">;
 
 export const cartColumns: ColumnDef<CartItem>[] = [
@@ -24,7 +26,7 @@ export const cartColumns: ColumnDef<CartItem>[] = [
         <h2 className="text-sm md:text-[16px]  font-poppins font-normal text-black ">Product</h2>
       </div>
     ),
-    cell: ({row}) => {
+    cell: ({ row }) => {
       const { name, image } = row.getValue('product') as ProductColumn;
 
       return (
@@ -37,7 +39,7 @@ export const cartColumns: ColumnDef<CartItem>[] = [
           <span>{name}</span>
         </div>
       );
-    }, 
+    },
   },
   {
     accessorKey: "price",
@@ -46,12 +48,12 @@ export const cartColumns: ColumnDef<CartItem>[] = [
         <h2 className="text-sm md:text-[16px] font-poppins font-normal text-black">Price</h2>
       </div>
     ),
-    cell: ({row}) => {
+    cell: ({ row }) => {
       const price = row.original.price
       return (
-         <span>${price}</span>
+        <span>${price}</span>
       );
-    }, 
+    },
   },
   {
     accessorKey: "quantity",
@@ -60,6 +62,21 @@ export const cartColumns: ColumnDef<CartItem>[] = [
         <h2 className="text-sm md:text-[16px] font-poppins font-normal text-black">Quantity</h2>
       </div>
     ),
+    cell: ({ row }) => {
+      const quantity = row.original.quantity
+      return (
+        <div className="w-[72px] p-2 rounded border-[1.5px]">
+          <div className="w-[48px] flex items-center justify-between">
+            <span className ="text-sm font-poppins font-normal">{quantity}</span>
+            <button className="flex flex-col gap-2 p-1">
+              <span><img src={upArrow} alt="uparrow-icon" className=""/></span>
+              <span><img src={downArrow} alt="downarrow-icon" className=""/></span>
+            </button>
+          </div>
+
+        </div>
+      );
+    },
   },
   {
     accessorKey: "subtotal",
