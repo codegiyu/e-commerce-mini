@@ -27,17 +27,24 @@ const ProductCard:React.FC<ProductCardProps>  = ({
   isNew = false,
   discountPrice = 0
 }) => {
-    const { addToCart } = useCartStore(state => state.actions);
+    const { addToCart, removeFromCart } = useCartStore(state => state.actions);
+    const cart = useCartStore(state => state.cart);
 
-    const[select,setSelected]=useState("")
+    const[select,setSelected]=useState("");
+
+    const isItemInCart = Boolean(cart[id]);
     
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleSelect = (item:string, _idx:number)=>{
-       
         setSelected(item)
-       
     }
+
+    const handleCartBtnClick = () => {
+      return isItemInCart
+        ? removeFromCart(id)
+        : addToCart({ id, name, image: img, price: discountPrice || price });
+    };
   return (
     <div
             className="h-[322px] grid bg-[#F5F5F5]  items-center mx-auto relative group w-[270px]  "
@@ -67,10 +74,10 @@ const ProductCard:React.FC<ProductCardProps>  = ({
             <Button
               variant={"default"}
               type="button"
-              onClick={() => addToCart({ id, name, image: img, price: discountPrice || price })}
+              onClick={handleCartBtnClick}
               className="bg-black rounded-none absolute w-full bottom-[110px] group-hover:bottom-[130px] capitalize  opacity-0 font-semibold   group-hover:opacity-100 group-hover:flex transition-all duration-500"
             >
-              Add to cart
+              {isItemInCart ? 'Remove from' : 'Add to'} cart
             </Button>
             <div className="bg-white w-full h-full">
             <div className=" py-2 ">

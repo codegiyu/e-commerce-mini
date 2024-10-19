@@ -7,6 +7,7 @@ import { useCartStore } from "@/lib/store/useCartStore";
 
 const CartTable = () => {
   const cart = useCartStore(state => state.cart);
+  // const { addToCart, clearCart } = useCartStore(state => state.actions)
 
   // const cart: CartItem[] = [
   //   {
@@ -53,7 +54,7 @@ const CartTable = () => {
         <span className="text-[14px]">Cart</span>
       </div> */}
       <div className="">
-        <DataTable columns={cartColumns} data={cart} />
+        <DataTable columns={cartColumns} data={Object.values(cart)} />
       </div>
       <div className=" flex md:flex md:flex-row md:items-center md:justify-between  flex-col gap-4 ">
         <OutlineBtn text="Return To shop" />
