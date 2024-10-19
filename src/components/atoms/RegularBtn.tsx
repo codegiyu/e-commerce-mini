@@ -11,7 +11,7 @@ export const RegularBtn = ({text, fullWidth = false, className, ...props}: Regul
   return (
     <Button 
       variant="default" 
-      className={cn(`py-4 px-12 ${fullWidth ? 'w-full' : 'w-fit'} rounded font-poppins text-base font-medium`, className)}
+      className={cn(`py-4 px-12 ${fullWidth ? 'w-full' : 'w-full md:w-fit'} rounded font-poppins text-base font-medium`, className)}
       {...props}>
       {text}
     </Button>

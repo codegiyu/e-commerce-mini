@@ -9,6 +9,7 @@ export default {
         poppins: ["'Poppins'", "sans-serif"],
       },
       screens: {
+        'sm-md': { min: '424px', max: '767px' },
         "2xl": "1536px",
         "3xl": "1780px",
       },

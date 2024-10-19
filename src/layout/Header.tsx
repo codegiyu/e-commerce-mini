@@ -49,7 +49,7 @@ export const Header = () => {
             Home
           </Link>
           <Link to="/contact">Contact</Link>
-          <Link to="#">About</Link>
+          <Link to="/About">About</Link>
           <Link to="/signup">Sign Up</Link>
         </div>
         <div className="flex flex-row items-center gap-5">
@@ -127,7 +127,7 @@ export const Header = () => {
                 Home
               </Link>
               <Link to="#">Contact</Link>
-              <Link to="#">About</Link>
+              <Link to="/About">About</Link>
               <Link to="/signup">Sign Up</Link>
             </div>
             <div className="flex flex-row items-center gap-5">
