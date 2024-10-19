@@ -15,19 +15,19 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/contact' element={<ContactPage />} />
-        
+
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<SignupPage />} />
-    
-
+        {/* Contact Pages */}
+        <Route path='/contact' element={<ContactPage />} />
         {/* Authenticated Pages */}
-        <Route path ='/cart' element={<CartPage/>}/>
+        <Route path='/cart' element={<CartPage />} />
 
         {/* 404 page */}
         <Route path='*' element={<NoPage />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

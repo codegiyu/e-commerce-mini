@@ -56,12 +56,12 @@ const CartTable = () => {
       <div className="">
         <DataTable columns={cartColumns} data={Object.values(cart)} />
       </div>
-      <div className=" flex md:flex md:flex-row md:items-center md:justify-between  flex-col gap-4 ">
+      <div className=" flex md:flex md:flex-row md:items-center md:justify-between flex-col gap-4 md:gap-0">
         <OutlineBtn text="Return To shop" />
         <OutlineBtn text="Update Cart" />
       </div>
       <div className="mb-12 flex flex-col md:flex-row items-start justify-between md:gap-4" >
-        <form className="md:w-[527px] w-full mb-6 p-2 flex  flex-col md:flex-row md:items-center md:justify-center gap-4">
+        <form className="md:w-[527px] w-full mb-6 p-2 flex flex-col md:flex-row md:items-center md:justify-center gap-4 md:p-0">
           <input className="md:w-[300px] p-[16px] rounded-md border font-poppins outline-none font-normal text-sm"
             placeholder="Coupon Code">
           </input>
