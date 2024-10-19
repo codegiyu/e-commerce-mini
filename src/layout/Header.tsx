@@ -48,7 +48,7 @@ export const Header = () => {
           >
             Home
           </Link>
-          <Link to="#">Contact</Link>
+          <Link to="/contact">Contact</Link>
           <Link to="#">About</Link>
           <Link to="/signup">Sign Up</Link>
         </div>
