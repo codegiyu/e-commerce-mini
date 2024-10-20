@@ -2,12 +2,12 @@ import LadyImg from "@/assets/images/woman-on-hat.png";
 import PS5Img from "@/assets/images/ps5-slim.png";
 import SpeakersImg from "@/assets/images/speakers.png";
 import PerfumeImg from "@/assets/images/perfume.png";
-import { Header } from "../header/header";
+import { SectionHeader } from "../products/header";
 
 function Featured() {
   return (
     <section className="container-main font-inter">
-      <Header label="featured" title="New Arrival" />
+      <SectionHeader label="featured" title="New Arrival" />
       <div className="my-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-[repeat(2,300px)] lg:gap-8">
         <aside className="relative col-span-1 aspect-square w-full bg-black text-white md:aspect-auto lg:col-span-2 lg:row-start-1 lg:row-end-3">
           <img className="h-full w-full" src={PS5Img} alt="ps5 slim" />

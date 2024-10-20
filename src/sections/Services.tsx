@@ -1,4 +1,5 @@
 import { ServiceList } from "@/constants/dServiceList"
+
 export const Services = () => {
     return(
         <div className=" w-full h-fit grid  place-items-center">
