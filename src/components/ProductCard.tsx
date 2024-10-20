@@ -41,9 +41,11 @@ const ProductCard:React.FC<ProductCardProps>  = ({
     }
 
     const handleCartBtnClick = () => {
+      const priceInUse = discountPrice || price;
+
       return isItemInCart
         ? removeFromCart(id)
-        : addToCart({ id, name, image: img, price: discountPrice || price });
+        : addToCart({ id, name, image: img, price: priceInUse, quantity: 1, subtotal: priceInUse });
     };
   return (
     <div

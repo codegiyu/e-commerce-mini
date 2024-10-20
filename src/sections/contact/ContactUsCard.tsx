@@ -1,4 +1,4 @@
-import CallUs from "@/components/contact/CallUs";
+import CallUs from "@/sections/contact/CallUs";
 
 export default function ContactUsCard() {
   return (
