@@ -87,7 +87,7 @@ export const productCard = [
     image: img1,
     rating: 3.5,
     isNew: true,
-    isDiscount: "20%",
+    discountPrice: "20%",
   },
   {
     name: "Dslr camera-No Discount",
@@ -97,7 +97,7 @@ export const productCard = [
     new: "new",
     rating: 3,
     isNew: true,
-    isDiscount: "15%",
+    discountPrice: "15%",
   },
   {
     name: "Laptop-no discount",
@@ -106,7 +106,7 @@ export const productCard = [
     image: img3,
     rating: 4,
     isNew: false,
-    isDiscount: "10%",
+    discountPrice: "10%",
   },
   {
     name: "Curology product set",
@@ -115,7 +115,7 @@ export const productCard = [
     image: img4,
     rating: 2,
     isNew: true,
-    isDiscount: "15%",
+    discountPrice: "15%",
   },
   {
     name: "Kids car-with color choosing",
@@ -124,7 +124,7 @@ export const productCard = [
     image: img5,
     rating: 4,
     isNew: true,
-    isDiscount: "5%",
+    discountPrice: "5%",
   },
   {
     name: "Soccer boat-color choosing",
@@ -142,7 +142,7 @@ export const productCard = [
     image: img7,
     rating: 1,
     isNew: true,
-    isDiscount: "15%",
+    discountPrice: "15%",
   },
   {
     name: "Man jacket-color choosing",
@@ -150,7 +150,7 @@ export const productCard = [
     price: 123,
     image: img8,
     rating: 2,
-    isisNew: true,
+    isNew: true,
   },
 ];
 

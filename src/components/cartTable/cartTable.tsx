@@ -1,57 +1,57 @@
-
-import { Link } from "react-router-dom"
 import { DataTable } from "./data-table";
-import { CartItem, cartColumns } from "./column";
-import perf from '@/assets/images/perfume.png';
+import { cartColumns } from "./column";
+// import perf from '@/assets/images/perfume.png';
 import { OutlineBtn } from "../atoms/OutlineBtn";
 import { RegularBtn } from "../atoms/RegularBtn";
+import { useCartStore } from "@/lib/store/useCartStore";
 
 const CartTable = () => {
+  const cart = useCartStore(state => state.cart);
 
-  const cart: CartItem[] = [
-    {
-      id: '63927cuh79bc28',
-      name: 'LG TV',
-      image: perf,
-      price: 600,
-      quantity: 1,
-    },
-    {
-      id: '63927cuh79bc28',
-      name: 'LG TV',
-      image: perf,
-      price: 600,
-      quantity: 1,
-    },
-    {
-      id: '63927cuh79bc28',
-      name: 'LG TV',
-      image: perf,
-      price: 600,
-      quantity: 1,
-    },
-    {
-      id: '63927cuh79bc28',
-      name: 'LG TV',
-      image: perf,
-      price: 600,
-      quantity: 1,
-    },
-    {
-      id: '63927cuh79bc28',
-      name: 'LG TV',
-      image: perf,
-      price: 600,
-      quantity: 1,
-    },
-  ];
+  // const cart: CartItem[] = [
+  //   {
+  //     id: '63927cuh79bc28',
+  //     name: 'LG TV',
+  //     image: perf,
+  //     price: 600,
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: '63927cuh79bc28',
+  //     name: 'LG TV',
+  //     image: perf,
+  //     price: 600,
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: '63927cuh79bc28',
+  //     name: 'LG TV',
+  //     image: perf,
+  //     price: 600,
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: '63927cuh79bc28',
+  //     name: 'LG TV',
+  //     image: perf,
+  //     price: 600,
+  //     quantity: 1,
+  //   },
+  //   {
+  //     id: '63927cuh79bc28',
+  //     name: 'LG TV',
+  //     image: perf,
+  //     price: 600,
+  //     quantity: 1,
+  //   },
+  // ];
   return (
-    <div className="md:mx-auto md:w-[90%] md:max-w-[1170px] mt-5 mb-20 flex flex-col gap-10 md:gap-20  p-3 md:p-0">
-      <div className="flex items-center gap-2 md:w-[104px] p-1 ">
+    <section className="container-main mt-5 mb-20 flex flex-col gap-10 md:gap-20">
+      {/* <div className="flex items-center gap-2 md:w-[104px] p-1 ">
         <Link to="/"><span className="text-[14px] cursor-pointer">Home</span></Link>
         <span>/</span>
         <span className="text-[14px]">Cart</span>
-      </div>
+      </div> */}
       <div className="">
         <DataTable columns={cartColumns} data={cart} />
       </div>
@@ -89,7 +89,7 @@ const CartTable = () => {
         </form>
       </div>
 
-    </div>
+    </section>
   )
 }
 export default CartTable;

@@ -10,16 +10,16 @@ export type CardType = {
     star?:number,
     color:string[],
     isNew?:boolean,
-    isDiscount?:string
+    discountPrice?:string
     isLiked?:boolean
     key:number
     price:number
 }
-const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,isNew,isDiscount}) => {
+const SingleCard:React.FC<CardType>  = ({img,name,discountPrice, key,star,isLiked=true,price,color=[],isNew=false}) => {
     const[select,setSelected]=useState("")
     
-
-    const handleSelect = (item:string, idx:number)=>{
+   
+    const handleSelect = (item:string)=>{
         setSelected(item)
     }
   return (
@@ -31,8 +31,6 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
               style={{ height: '150px' }} 
               className="object-contain w-[118px] grid mx-auto my-auto"
             />
-           
-        
             <div className="absolute top-3 right-4 flex  gap-3">
               <div className="w-[32px] h-[32px] bg-white rounded-full grid items-center justify-center">
                {
@@ -42,8 +40,7 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
                 className="w-[20px] h-[20px]   object-contain cursor-pointer    "
               />
                }
-              </div>
-             
+              </div>   
             </div>
             <Button
               variant={"default"}
@@ -59,10 +56,7 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
                 <p className="text-red-500 text-sm font-semibold">
                   ${price}{" "}
                 </p>
-             
-
                 <StarRating rating={star as number} />
-              
               </div>
             </div>
             <div className="absolute  top-2 left-3 flex flex-col items-center gap-1">
@@ -71,16 +65,17 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
               new
               </p>
             )}
-            {isDiscount && (
+
+            {discountPrice && (
               <p className=" capitalize  bg-red-500 pb-2 text-white p-1 rounded-sm min-w-[50px] flex justify-center text-center  ">
-              {isDiscount}
+               {discountPrice }
               </p>
             )}
             </div>
             <div className="flex gap-1 bg-white">
               {color.map((item,idx) => (
                 
-                <div className="flex gap-1 " key={idx} onClick={()=>handleSelect(item,idx)}>
+                <div className="flex gap-1 " key={idx} onClick={()=>handleSelect(item)}>
 
                   <div style={{ backgroundColor: item,borderColor:select===item   ?"black":"transparent",  }}
                     className={` w-4 h-4 rounded-full border-2  relative`} >

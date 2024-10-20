@@ -25,7 +25,7 @@ const CountDown = () => {
             <CountDownSingle time={minutes} times='minutes'/>
              <CountDownSingle time={seconds} times='seconds'/>
             </div>
-            <Button className='  lg:max-w-[200px] bg-[#15ad3d] hover:bg-green-700 text-xl !py-6 text-white'>Buy Now</Button>
+            <Button className='  lg:max-w-[200px] bg-[#15ad3d] hover:bg-green-700 text-xl !py-4 text-white'>Buy Now</Button>
           </div>
          
         );
@@ -33,7 +33,7 @@ const CountDown = () => {
     };
     const targetDate = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000);
   return (
-    <div className="w-full bg-[#000000] h-[450px]  flex ">
+    <div className="w-full bg-[#000000] h-[450px]  flex mb-5 ">
         <div className="flex-1 w-full p-8">
         <Countdown date={targetDate} renderer={renderer} />
         </div>

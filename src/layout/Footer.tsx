@@ -32,8 +32,8 @@ export const Footer = () => {
               {item.name}{" "}
             </h1>
             <div className="flex flex-col gap-2">
-              {item.links.map((item) => (
-                <div className="">
+              {item.links.map((item, idx) => (
+                <div key={idx} className="">
                   <a href={item?.path}>{item.title} </a>
                 </div>
               ))}
