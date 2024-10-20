@@ -3,7 +3,8 @@ import heart from "../assets/heart.png";
 import StarRating from "./StarRating";
 import { Button } from './ui/button';
 
-type CardType={
+export type CardType = {
+    id: string;
     img:string,
     name:string,
     star?:number,
@@ -18,18 +19,12 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
     const[select,setSelected]=useState("")
     
 
-    const handleSelect = (item:string,idx:number)=>{
-       
+    const handleSelect = (item:string, idx:number)=>{
         setSelected(item)
-       
     }
   return (
-    <div
-            key={key}
-            className="h-[322px] grid bg-[#F5F5F5]  items-center mx-auto relative group w-[270px]  "
-          >
-            
-
+    <div key={key}
+            className="h-[322px] grid bg-[#F5F5F5]  items-center mx-auto relative group w-[270px]">
            <img
               src={img}
               alt="Description"
@@ -53,7 +48,7 @@ const SingleCard:React.FC<CardType>  = ({img,name, key,star,isLiked,price,color,
             <Button
               variant={"default"}
               type="submit"
-              className="bg-black rounded-none absolute w-full bottom-[110px] group-hover:bottom-[130px] capitalize  opacity-0 font-semibold   group-hover:opacity-100 group-hover:flex transition-all duration-500"
+              className="bg-black py-2 rounded-none absolute w-full bottom-[110px] group-hover:bottom-[130px] capitalize  opacity-0 font-semibold   group-hover:opacity-100 group-hover:flex transition-all duration-500"
             >
               Add to cart
             </Button>

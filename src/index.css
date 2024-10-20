@@ -23,4 +23,8 @@
   }
 }
 
-
+.header-404 {
+  font-size: 4rem;
+  text-align: center;
+  color: blue;
+}
