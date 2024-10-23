@@ -8,7 +8,7 @@ import { useForm} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z, ZodType } from "zod";
 
-type FormInfo = {
+export type SignupFormInfo = {
   firstName: string;
   lastName: string;
   email: string;
@@ -21,7 +21,7 @@ const SignUP = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword)
   }
-  const schema: ZodType<FormInfo> = z.object({
+  const schema: ZodType<SignupFormInfo> = z.object({
     firstName: z.string().min(2).max(50),
     lastName: z.string().min(2).max(50),
     email: z.string().email("Enter a valid email"),
@@ -34,10 +34,10 @@ const SignUP = () => {
 
   const { register, handleSubmit,
     formState: { errors }, reset
-  } = useForm<FormInfo>({ resolver: zodResolver(schema) })
+  } = useForm<SignupFormInfo>({ resolver: zodResolver(schema) })
 
 
-  const submitData = (data: FormInfo) => {
+  const submitData = (data: SignupFormInfo) => {
     console.log("submitted success", data)
     reset();
   }

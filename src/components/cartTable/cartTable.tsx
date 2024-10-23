@@ -55,7 +55,7 @@ const CartTable = () => {
         <span className="text-[14px]">Cart</span>
       </div> */}
       <div className="">
-        <DataTable columns={cartColumns} data={cart} />
+        <DataTable columns={cartColumns} data={Object.values(cart)} />
       </div>
       <div className="flex flex-col gap-4 md:flex md:flex-row md:items-center md:justify-between md:gap-0">
         <Link to="/">
