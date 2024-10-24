@@ -23,7 +23,6 @@ export const useInitCart = create<CartStore>()((set, get) => ({
       const { cart, numberOfItemsInStore } = get();
       const newCart = structuredClone(cart);
       delete newCart[id];
-
       set({ cart: newCart, numberOfItemsInStore: numberOfItemsInStore - 1 });
     },
     updateItemQuantityInCart: (id, change) => {
@@ -36,10 +35,17 @@ export const useInitCart = create<CartStore>()((set, get) => ({
 
       set({ cart: newCart });
     },
+    subTotalCalculation: () =>{
+      const {cart} = get();
+      return Object.values(cart).reduce((total, item) => {
+        return total + (item.price * item.quantity);
+      }, 0);
+    },
     clearCart: () => {
       // set(defaultCart);
       set({ cart: {}, numberOfItemsInStore: 0 });
     },
+    
   }
 }));
 

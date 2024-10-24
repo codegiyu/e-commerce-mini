@@ -9,6 +9,7 @@ export interface CartStore {
     addToCart: (obj: CartItem) => void;
     removeFromCart: (id: string) => void;
     updateItemQuantityInCart: (id: string, change: -1 | 1) => void;
+    subTotalCalculation:() => number;
     clearCart: () => void;
   };
 }

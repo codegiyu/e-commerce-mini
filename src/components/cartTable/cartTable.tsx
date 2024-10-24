@@ -7,9 +7,13 @@ import { RegularBtn } from "../atoms/RegularBtn";
 import { useCartStore } from "@/lib/store/useCartStore";
 import { Link } from "react-router-dom";
 
+
+
 const CartTable = () => {
   const cart = useCartStore((state) => state.cart);
-
+  const subTotalCalculation = useCartStore(state => state.actions.subTotalCalculation);
+  console.log("sub-total is: ", subTotalCalculation);
+  const subtotal = subTotalCalculation();
   // const cart: CartItem[] = [
   //   {
   //     id: '63927cuh79bc28',
@@ -72,13 +76,13 @@ const CartTable = () => {
           ></input>
           <RegularBtn text="Apply Coupon" />
         </form>
-        <form className="w-full rounded-sm border border-black p-4 md:w-[470px]">
+        <div className="w-full rounded-sm border border-black p-4 md:w-[470px]">
           <h2 className="font-poppins text-[20px] font-medium">Cart Total</h2>
           <div className="mb-3 mt-3 flex items-center justify-between">
             <span className="font-poppins text-base font-normal">
               SubTotal:
             </span>
-            <span className="font-poppins text-base font-normal">$1750</span>
+            <span className="font-poppins text-base font-normal">${subtotal.toFixed(2)}</span>
           </div>
           <hr className="h-0.5 w-full bg-black" />
           <div className="mb-3 mt-4 flex items-center justify-between">
@@ -90,12 +94,12 @@ const CartTable = () => {
           <hr className="h-0.5 w-full bg-black" />
           <div className="mb-2 mt-4 flex items-center justify-between">
             <span className="font-poppins text-base font-normal">Total:</span>
-            <span className="font-poppins text-base font-normal">$1750</span>
+            <span className="font-poppins text-base font-normal">${subtotal.toFixed(2)}</span>
           </div>
           <div className="mx-auto flex items-center justify-center">
             <RegularBtn text="Process to Checkout" />
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );
