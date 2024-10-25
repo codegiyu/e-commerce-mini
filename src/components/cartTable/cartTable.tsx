@@ -11,9 +11,12 @@ import { Link } from "react-router-dom";
 
 const CartTable = () => {
   const cart = useCartStore((state) => state.cart);
-  const subTotalCalculation = useCartStore(state => state.actions.subTotalCalculation);
+  const {subTotalCalculation} = useCartStore((state) => state.actions);
+  // const subTotalCalculation = useCartStore(state => state.actions.subTotalCalculation);
   console.log("sub-total is: ", subTotalCalculation);
   const subtotal = subTotalCalculation();
+
+  
   // const cart: CartItem[] = [
   //   {
   //     id: '63927cuh79bc28',
