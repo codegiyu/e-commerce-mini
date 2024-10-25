@@ -7,16 +7,28 @@ import { RegularBtn } from "../atoms/RegularBtn";
 import { useCartStore } from "@/lib/store/useCartStore";
 import { Link } from "react-router-dom";
 
-
-
 const CartTable = () => {
   const cart = useCartStore((state) => state.cart);
-  const {subTotalCalculation} = useCartStore((state) => state.actions);
+  const { subTotalCalculation, removeFromCart } = useCartStore(
+    (state) => state.actions,
+  );
   // const subTotalCalculation = useCartStore(state => state.actions.subTotalCalculation);
   console.log("sub-total is: ", subTotalCalculation);
   const subtotal = subTotalCalculation();
 
-  
+  const handleCartBtnClick = () => {
+    for (const id of Object.keys(cart)) {
+      removeFromCart(id);
+    }
+  };
+  //---------------------Normal for loop method-----------
+  // const handleCartBtnClick = () => {
+  //   for(let i = 0; i < Object.keys(cart).length; i++){
+  //     const id = Object.keys(cart)[i]
+  //     removeFromCart(id)
+  //   }
+  // };
+
   // const cart: CartItem[] = [
   //   {
   //     id: '63927cuh79bc28',
@@ -69,7 +81,7 @@ const CartTable = () => {
           <OutlineBtn text="Return To shop" />
         </Link>
 
-        <OutlineBtn text="Clear Cart" />
+        <OutlineBtn onClick={handleCartBtnClick} text="Clear Cart" />
       </div>
       <div className="mb-12 flex flex-col items-start justify-between md:flex-row md:gap-4">
         <form className="mb-6 flex w-full flex-col gap-4 p-2 md:w-[527px] md:flex-row md:items-center md:justify-center md:p-0">
@@ -85,7 +97,9 @@ const CartTable = () => {
             <span className="font-poppins text-base font-normal">
               SubTotal:
             </span>
-            <span className="font-poppins text-base font-normal">${subtotal.toFixed(2)}</span>
+            <span className="font-poppins text-base font-normal">
+              ${subtotal.toFixed(2)}
+            </span>
           </div>
           <hr className="h-0.5 w-full bg-black" />
           <div className="mb-3 mt-4 flex items-center justify-between">
@@ -97,7 +111,9 @@ const CartTable = () => {
           <hr className="h-0.5 w-full bg-black" />
           <div className="mb-2 mt-4 flex items-center justify-between">
             <span className="font-poppins text-base font-normal">Total:</span>
-            <span className="font-poppins text-base font-normal">${subtotal.toFixed(2)}</span>
+            <span className="font-poppins text-base font-normal">
+              ${subtotal.toFixed(2)}
+            </span>
           </div>
           <div className="mx-auto flex items-center justify-center">
             <RegularBtn text="Process to Checkout" />
