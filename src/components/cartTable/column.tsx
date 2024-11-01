@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import downArrow from "../../assets/downArrow.png"
 import upArrow from "../../assets/upArrow.png"
+import { useInitCart } from "@/lib/store/useCartStore";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -12,10 +13,11 @@ export type CartItem = {
   image: string;
   price: number;
   quantity: number;
+  subtotal: number;
 }
 
 type ProductColumn = Pick<CartItem, "id" | "image" | "name">;
-// type ProductColumn = Omit<CartItem, "id" | "image" | "name">;
+type ProductQuantity = Pick<CartItem, "id" | "quantity">;
 
 export const cartColumns: ColumnDef<CartItem>[] = [
   {
@@ -27,14 +29,22 @@ export const cartColumns: ColumnDef<CartItem>[] = [
       </div>
     ),
     cell: ({ row }) => {
-      const { name, image } = row.getValue('product') as ProductColumn;
+      const {removeFromCart} = useInitCart.getState().actions;
+
+      const { id, name, image } = row.getValue('product') as ProductColumn;
 
       return (
         <div className="flex flex-col md:flex-row md:items-center gap-6">
           <div className="relative group">
             <img src={image} alt={name} className="w-10 h-10 md:w-[3.25rem] md:h-[3.25rem] object-cover cursor-pointer" />
-            <button className="absolute  text-white
-              text-bold -inset-3 right-0 -left-2 rounded-[100%] w-6 h-6 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">X</button>
+            <button
+              onClick={() => removeFromCart(id)}
+              className="absolute  text-white
+              text-bold -inset-3 right-0 
+              -left-2 rounded-[100%] 
+              w-6 h-6 bg-red-600 
+              opacity-0 group-hover:opacity-100
+               transition-opacity duration-300">X</button>
           </div>
           <span>{name}</span>
         </div>
@@ -51,27 +61,38 @@ export const cartColumns: ColumnDef<CartItem>[] = [
     cell: ({ row }) => {
       const price = row.original.price
       return (
-        <span>${price}</span>
+        <span>₦{price}</span>
       );
     },
   },
   {
-    accessorKey: "quantity",
+    id: "quantity",
+    accessorFn: row => ({ id: row.id, quantity: row.quantity }) satisfies ProductQuantity,
     header: () => (
       <div>
         <h2 className="text-sm md:text-[16px] font-poppins font-normal text-black">Quantity</h2>
       </div>
     ),
     cell: ({ row }) => {
-      const quantity = row.original.quantity
+      // const { updateItemQuantityInCart } = useCartStore(state => state.actions);
+      const { updateItemQuantityInCart } = useInitCart.getState().actions;
+      const { id, quantity } = row.getValue('quantity') as ProductQuantity;
+
       return (
         <div className="w-[72px] p-2 rounded border-[1.5px]">
           <div className="w-[48px] flex items-center justify-between">
-            <span className ="text-sm font-poppins font-normal">{quantity}</span>
-            <button className="flex flex-col gap-2 p-1">
-              <span><img src={upArrow} alt="uparrow-icon" className=""/></span>
-              <span><img src={downArrow} alt="downarrow-icon" className=""/></span>
-            </button>
+            <span className="text-sm font-poppins font-normal">{quantity}</span>
+            <div className="flex flex-col gap-2 p-1">
+              <button onClick={() => updateItemQuantityInCart(id, 1)}>
+                <img src={upArrow} alt="uparrow-icon" className="" />
+              </button>
+              <button
+                className="disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={quantity === 1}
+                onClick={() => updateItemQuantityInCart(id, -1)}>
+                <img src={downArrow} alt="downarrow-icon" className="" />
+              </button>
+            </div>
           </div>
 
         </div>
@@ -85,5 +106,11 @@ export const cartColumns: ColumnDef<CartItem>[] = [
         <h2 className="text-sm md:text-[16px]  font-poppins font-normal text-black">Subtotal</h2>
       </div>
     ),
+    cell: ({ row }) => {
+      const price = row.getValue('subtotal') as number;
+      return (
+        <span>₦{price}</span>
+      );
+    },
   },
 ]
